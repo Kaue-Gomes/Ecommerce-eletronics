@@ -8,11 +8,11 @@ const Header = () => {
     <header>
       <div className={styles["inner-content"]}>
         <div className={styles["Left-side"]}>
-          <h2>Dê um novo Estilo ao seu trabalho</h2>
-          <p>
-            Sucesso nem sempre tem a ver com grandeza. Tem a ver com consistência.
-            Trabalho duro supera o sucesso. A grandeza virá.
-          </p>
+        <h2>Transforme seu Trabalho com Estilo</h2>
+        <p>
+            Sucesso não se mede pela grandeza, mas pela consistência. O trabalho árduo leva à excelência, e a grandeza é apenas uma consequência natural.
+        </p>
+
           <Link className={styles["see-more-btn"]} to="/products">
             <span>Ver agora</span>
             <FaChevronRight />
