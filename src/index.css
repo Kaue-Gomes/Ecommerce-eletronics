@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #9378d8;
+  --dark-primary-color:#0f355f;
+  --dark-secundary-color:#3b0a58;
+  --light-color: #e9e9e9;
+  --dark-color: #2c2c2c;
+}
+
+body{
+  font-family: "Ubuntu", sans-serif;
+  color: var(--dark-color);
+  
+}
+
+* {
+  text-decoration: none;
+  color: unset;
+}
