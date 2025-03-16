@@ -12,7 +12,11 @@
   --light-color: #e9e9e9;
   --dark-color: #2c2c2c;
 }
-
+.page-inner-content{
+  max-width: 1200px;
+  margin-inline:  auto;
+  padding-inline: 1rem;
+}
 body{
   font-family: "Ubuntu", sans-serif;
   color: var(--dark-color);

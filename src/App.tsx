@@ -2,6 +2,8 @@ import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/products/Products";
+import ExclusiveSection from "./components/ExclusiveSection/ExclusiveSection";
+import Testimonials from "./components/Testimonial/Testimonials";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           <Header />
           <Products />
         </main>
+        < ExclusiveSection />
+        < Testimonials />
       </div>
     </BrowserRouter>
   );
