@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/products/Products";
 import ExclusiveSection from "./components/ExclusiveSection/ExclusiveSection";
 import Testimonials from "./components/Testimonial/Testimonials";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         </main>
         < ExclusiveSection />
         < Testimonials />
+        <Footer />
       </div>
     </BrowserRouter>
   );
