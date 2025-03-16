@@ -1,8 +1,4 @@
-.page-inner-content{
-    max-width: 1200px;
-    margin-inline:  auto;
-    padding-inline: 1rem;
-}
+
 .products-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, 288px);
@@ -10,7 +6,11 @@
     gap: 1.5rem;
     padding-bottom: 2rem;   
 }
-
+.page-inner-content{
+    max-width: 1200px;
+    margin-inline:  auto;
+    padding-inline: 1rem;
+}
 .product{
     padding: 1rem;
     border: 1px solid #e0e0e0;
