@@ -9,7 +9,7 @@ import { ProductType, CartItem } from "./types/types";
 
 function App() {
   const [showSidebarCart, setShowSidebarCart] = useState(false);
-  const [cartTotal, setCartTotal] = useState<number>(0);
+  const [cartTotal, setCartTotal] = useState<number>(0); // Estado para o valor total do carrinho
   const [selectProducts, setSelectProducts] = useState<CartItem[]>([]);
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -41,6 +41,12 @@ function App() {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    // Calcula o valor total do carrinho sempre que `selectProducts` mudar
+    const total = selectProducts.reduce((acc, product) => acc + product.price * product.quantity, 0);
+    setCartTotal(total);
+  }, [selectProducts]);
+
   const addProductToCart = (id: number) => {
     if (loading) return console.error("Erro: Produtos ainda estão carregando.");
 
@@ -61,7 +67,6 @@ function App() {
       ...prev,
       { ...productToAdd, quantity: 1 },
     ]);
-    setCartTotal((prev) => prev + productToAdd.price);
   };
 
   return (
@@ -80,7 +85,7 @@ function App() {
                     setShowSidebarCart={setShowSidebarCart}
                     showSidebarCart={showSidebarCart}
                     selectProducts={selectProducts}
-                    setSelectProducts={setSelectProducts} // Passa setSelectProducts
+                    setSelectProducts={setSelectProducts}
                     addProductToCart={addProductToCart}
                   />
                 )
@@ -99,8 +104,12 @@ function App() {
           showSidebarCart={showSidebarCart}
           setShowSidebarCart={setShowSidebarCart}
           selectProducts={selectProducts}
-          setSelectProducts={setSelectProducts} // Passa a função para atualizar o estado
+          setSelectProducts={setSelectProducts}
         />
+        {/* Exibe o valor total do carrinho */}
+        <div style={{ padding: "1rem", backgroundColor: "#f8f8f8", textAlign: "center" }}>
+          <h3>Total do Carrinho: {cartTotal.toFixed(2)} R$</h3>
+        </div>
       </div>
     </BrowserRouter>
   );
