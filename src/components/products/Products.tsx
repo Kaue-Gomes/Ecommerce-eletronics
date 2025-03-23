@@ -14,7 +14,7 @@ const Products = ({ addProductToCart }: { addProductToCart: (id: number) => void
 
     const fetchProducts = async () => {
       try {
-        const response = await fetch(" /Ecommerce-eletronics/db.json");
+        const response = await fetch("https://kaue-gomes.github.io/Ecommerce-eletronics/db.json");
         if (!response.ok) {
           throw new Error("Erro ao buscar produtos");
         }
