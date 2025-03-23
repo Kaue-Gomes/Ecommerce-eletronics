@@ -1,29 +1,49 @@
-import React from 'react';
-import { ProductType } from '../../types/types'; 
-import { Link } from 'react-router-dom';
-import { FaMoneyBill,FaCartShopping } from 'react-icons/fa6';
-import styles from '../../scss/Products.module.scss';
+import React from "react";
+import { ProductType } from "../../types/types";
+import styles from "../../scss/Products.module.scss";
 
+interface ProductProps {
+  product: ProductType;
+  addProductToCart: (id: number) => void;
+}
 
-const Product: React.FC<ProductType> = ({ id, name, price, image, rating }) => {
+const ProductItem: React.FC<ProductProps> = ({ product, addProductToCart }) => {
   return (
-    <div className={styles["product"]}>
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p className={styles["rating"]}>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p className={styles["price"]}><span>R$</span> {price.toFixed(2)}</p>
-      <div className={styles["buttons"]}>
-        <Link to="/products/123/checkout" className={styles["btn-icon"]}>
-        <span>Comprar Agora</span>
-        <FaMoneyBill/>
-        </Link>
-        <button className={`${styles["btn-icon"]} ${styles["add-to-cart"]}`}>
-          <span>Adicionar ao carrinho</span>
-          <FaCartShopping />
+    <div className={styles.product}>
+      {/* Imagem do Produto */}
+      <img
+        src={product.image}
+        alt={`Imagem de ${product.name}`}
+        className={styles.image}
+      />
+
+      {/* Nome do Produto */}
+      <h3 className={styles.name}>{product.name}</h3>
+
+      {/* Preço do Produto */}
+      <p className={styles.price}>
+        Preço: <span>{product.price?.toFixed(2) || "0.00"} R$</span>
+      </p>
+
+      {/* Avaliação do Produto (opcional) */}
+      {product.rating !== undefined && (
+        <p className={styles.rating}>
+          Avaliação: {product.rating} ★
+        </p>
+      )}
+
+      {/* Botões */}
+      <div className={styles.buttons}>
+        {/* Botão "Adicionar ao Carrinho" */}
+        <button
+          className={`${styles["btn-icon"]} ${styles["add-to-cart"]}`}
+          onClick={() => addProductToCart(product.id)}
+        >
+          Adicionar ao carrinho
         </button>
       </div>
     </div>
   );
 };
 
-export default Product;
+export default ProductItem;
