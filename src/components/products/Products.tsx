@@ -14,7 +14,7 @@ const Products = ({ addProductToCart }: { addProductToCart: (id: number) => void
 
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/db.json");
+        const response = await fetch(" /Ecommerce-eletronics/db.json");
         if (!response.ok) {
           throw new Error("Erro ao buscar produtos");
         }
