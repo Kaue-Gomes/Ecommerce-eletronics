@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(" /Ecommerce-eletronics/db.json");
+        const response = await fetch("/Ecommerce-eletronics/db.json");
         if (!response.ok) throw new Error("Erro ao buscar produtos");
 
         const data = await response.json();
